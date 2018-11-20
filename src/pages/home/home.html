@@ -1,14 +1,30 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="white">
+      </button>
+    </ion-buttons>
+    <ion-title>Contactos</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="white" (click)= "clickagregar()">
+        <ion-icon name="person-add" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-card *ngFor="let c of contactos" (click)=clickcontactos(c)>
+<ion-card-content>
+<ion-item>
+  <ion-avatar item-start>
+    <img [src]=c.icono>
+  </ion-avatar>
+  <h2>{{c.nombre}}</h2>
+<p>{{c.tel}}</p>
+</ion-item>
+</ion-card-content>
+</ion-card>
 </ion-content>
